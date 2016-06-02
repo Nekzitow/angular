@@ -18,6 +18,16 @@
             return this.tab === checkTab;
         };
     });
+
+    app.controller('ReviewController', function () {
+        this.review = {};
+
+        this.addReview = function (product) {
+            this.review.createdOn = date.now();
+            product.reviews.push(this.review);
+            this.review = {};
+        };
+    });
     /*Arreglo*/
     var gem2 = [
         {
