@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="store">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+    <style type="text/css">
+        .ng-invalid.ng-dirty{
+            border-color: red;
+        }
+        .ng-valid.ng-dirty{
+            border-color: limegreen;
+        }
+    </style>
 </head>
-<body>
-
+<body ng-controller="StoreController as store">
+<div class="container">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="product in store.products">
+                <!--Common Directive
+                <h3 ng-include="'product-title.html'"> </h3>-->
+                <!--Custom Directive este tipo de directiva no funciona en todos los navegadores
+                <product-title></product-title>-->
+                <!--Custom Directive como atributo-->
+                <h3 product-title></h3>
+                <div class="col-lg-12">
+                    <img ng-src="{{product.images.full}}" class="center-block">
+                </div>
+                <product-panels></product-panels>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+<script type="text/javascript" src="angular-1.5.5/angular.min.js"></script>
+<script type="text/javascript" src="app/appCuarta.js"></script>
+<script type="text/javascript" src="app/products.js"></script>
 </body>
 </html>
